@@ -9,10 +9,13 @@ void T9::load(istream& in)
 {
   while(in) {
     string w;
-    in >> w;
+    int x;
+    in >> w >> x;
     T9_node* c = &root;
     for(int i = 0; i < w.size(); ++i)
     {
+      if(w[i] > 'z' || w[i] < 'a')
+        continue;
       if(! c->link[factor[w[i]]])
         c->link[factor[w[i]]] = new T9_node();
       c = c->link[factor[w[i]]];
