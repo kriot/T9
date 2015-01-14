@@ -19,7 +19,7 @@ public:
 class T9 {
 public:
   void load(istream& in);
-  string input(string s);
+  pair<set<string>::iterator, set<string>::iterator> input(string w);
 
   int factor[256];
 
