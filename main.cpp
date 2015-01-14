@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <ncurses.h>
 
 #include "t9.hpp"
 
@@ -37,14 +38,20 @@ int main()
   cout << "loaded\n";
   string x = "";
   char c;
-  while((c = getchar()) != ' ')
+  initscr();
+  while(c = getch())
   {
-    if( c == '\n' ) continue;
+    if( c == '\n') continue;
     x += c;
+    if( c == ' ')
+    {
+      x = "";
+      continue;
+    }
     auto w = t9.input(x);
     for(; w.first != w.second; w.first++)
     {
-      cout << *w.first << " ";
+      cout << w.first-> first <<":"<< w.first->second << " ";
     }
     cout << "\n";
   }

@@ -20,11 +20,11 @@ void T9::load(istream& in)
         c->link[factor[w[i]]] = new T9_node();
       c = c->link[factor[w[i]]];
     }
-    c->words.insert(w);
+    c->words.insert(make_pair(x,w));
   }
 }
 
-pair<set<string>::iterator, set<string>::iterator> T9::input(string w)
+pair<set<pair<int, string> >::iterator, set<pair<int, string> >::iterator> T9::input(string w)
 {
     T9_node* c = &root;
     for(int i = 0; i < w.size(); ++i)
