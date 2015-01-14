@@ -13,10 +13,9 @@ void T9::load(istream& in)
     T9_node* c = &root;
     for(int i = 0; i < w.size(); ++i)
     {
-      if(c->link[factor[w[i]]])
-        c = c->link[factor[w[i]]];
-      else
-        c = c->link[factor[w[i]]] = new T9_node();
+      if(! c->link[factor[w[i]]])
+        c->link[factor[w[i]]] = new T9_node();
+      c = c->link[factor[w[i]]];
     }
     c->words.insert(w);
   }

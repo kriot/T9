@@ -1,10 +1,14 @@
-all: t9
+all: t9_prj
 
-t9: main.o t9.o
-	g++ -g main.o t9.o -o main
+t9_prj: main.o t9.o
+	g++ --std=c++11 -g main.o t9.o -o main
 
 main.o: main.cpp
-	g++ -g -c main.cpp
+	g++ --std=c++11 -g -c main.cpp
 
-t9.o:
-	g++ -g -c t9.cpp
+t9.o: t9.cpp t9.hpp
+	g++ --std=c++11 -g -c t9.cpp
+
+
+clean:
+	rm *.o main

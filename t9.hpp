@@ -10,6 +10,10 @@ class T9_node {
 public:
   T9_node* link[MAX_FACTOR];
   set<string> words;
+  T9_node() {
+    for(int i = 0; i < MAX_FACTOR; ++i)
+      link[i] = nullptr;
+  }
 };
 
 class T9 {
